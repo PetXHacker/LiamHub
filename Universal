@@ -1,0 +1,31 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "LiamHub", HidePremium = false, IntroText = "LiamHub", SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--Tabs
+local Tab = Window:MakeTab({
+	Name = "Lemon Scripts",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = True
+})
+
+
+--Section
+local Section = Tab:AddSection({
+	Name = "Universal Scripts"
+})
+
+--Buttons
+
+ Tab:AddToggle({
+	Name = "Infinite Jump(Forever)",
+	Default = false,
+	Callback = function(Value)
+ local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)	
+	end    
+})
+OrionLib:Init()
